@@ -10,3 +10,11 @@ result = inputFile.readline()
 firstOperand = firstOperand[:len(firstOperand)-1]
 secondOperand = secondOperand[:len(secondOperand)-2]
 result = result[:len(result)]
+
+#Variable for answers
+ansFistOperand = firstOperand
+ansSecondOperand = secondOperand
+ansResult = result
+
+#The letters that used in the expression
+letterUsed = []

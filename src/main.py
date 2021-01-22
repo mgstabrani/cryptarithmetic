@@ -1,1 +1,4 @@
 from function import *
+
+putLetters()
+

@@ -1,4 +1,4 @@
-from input import *
+from input import firstOperand,secondOperand,result,letterUsed
 
 def isSingleLetter(x):
     found = 0
@@ -9,3 +9,13 @@ def isSingleLetter(x):
         return False
     else:
         return True
+
+def putLetters():
+    for letter in (firstOperand+secondOperand+result):
+        isUnique = True
+        for j in range(len(letterUsed)-1):
+            if(letter == letterUsed[j]):
+                isUnique = False
+        if(isUnique and letter != " "):
+            letterUsed.append(letter)
+        
