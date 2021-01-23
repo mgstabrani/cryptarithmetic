@@ -38,3 +38,8 @@ def checkAnswer(letterUsed):
             if(result[i] == usedLetter[0]):
                 resultAnswer += usedLetter[1]
     return (int(firstOperandAnswer) + int(secondOperandAnswer) == int(resultAnswer))
+
+def changeNumber(letter, number):
+    letter = list(letter)
+    letter[1] = str(number)
+    return letter[0]+letter[1]
