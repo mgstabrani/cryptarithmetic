@@ -18,4 +18,23 @@ def putLetters():
                 isUnique = False
         if(isUnique and letter != " "):
             letterUsed.append(letter)
-        
+
+def checkAnswer(letterUsed):
+    firstOperandAnswer = ""
+    secondOperandAnswer = ""
+    resultAnswer = ""
+    for i in range(len(firstOperand)):
+        for usedLetter in letterUsed:
+            if(firstOperand[i] == usedLetter[0]):
+                firstOperandAnswer += usedLetter[1]
+            elif(firstOperand[i] == " "):
+                firstOperandAnswer += " "
+    for i in range(len(secondOperand)):
+        for usedLetter in letterUsed:
+            if(secondOperand[i] == usedLetter[0]):
+                secondOperandAnswer += usedLetter[1]
+    for i in range(len(result)):
+        for usedLetter in letterUsed:
+            if(result[i] == usedLetter[0]):
+                resultAnswer += usedLetter[1]
+    return (int(firstOperandAnswer) + int(secondOperandAnswer) == int(resultAnswer))
