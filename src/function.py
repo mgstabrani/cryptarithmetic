@@ -1,4 +1,4 @@
-from input import operand,result,letterUsed
+from input import operand,result,letterUsed,countTest,found
 
 def isSingleLetter(x):
     found = 0
@@ -62,10 +62,8 @@ def putNumbers(a):
  
 def heapPermutation(n,A):
     c = [0 for i in range(n)]
-    found = False
-    countTest = 0
     i = 0
-    while(i < n and not found):
+    while(i < n and not found[0]):
         if(c[i] < i):
             if (i % 2 == 0):
                 A[0],A[i] = A[i],A[0]
@@ -74,19 +72,14 @@ def heapPermutation(n,A):
             if(A[0] != 0):
                 for k in range(len(letterUsed)):
                     letterUsed[k] = changeNumber(letterUsed[k],A[k])  
-                countTest += 1                 
+                countTest[0] += 1                 
                 if(checkAnswer(letterUsed)):
-                    for answer in letterUsed:
-                        print(answer[0], "=", answer[1])
-                    found = True
+                    found[0] = True
             c[i] += 1
             i = 0
         else:
             c[i] = 0
             i += 1
-    if(not found):
-        print("No solution")
-    print("The total test =", countTest)
 
 def displaySolution():
     for operands in operand[:len(operand)-1]:
@@ -104,7 +97,7 @@ def displaySolution():
         if(letter == " "):
             print(" ", end="")
     print("+")
-    print(len(result)*"-")    
+    print((len(result)+1)*"-")    
     for letter in result:
         for number in letterUsed:
             if(letter == number[0]):
