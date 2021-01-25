@@ -1,15 +1,5 @@
 from input import operand,result,letterUsed,countTest,found
 
-def isSingleLetter(x):
-    found = 0
-    for letter in operand:
-        if(x == letter):
-            found += 1
-    if(found > 1):
-        return False
-    else:
-        return True
-
 def initNumber():
     for i in range(len(letterUsed)):
         letterUsed[i] += "0"
@@ -47,18 +37,12 @@ def checkAnswer(letterUsed):
             isValid = False
     if(resultAnswer[0] == "0"):
         isValid = False
-
+    if(not isValid):
+        countTest[0] -= 1
     sum = 0
     for number in operandAnswer:
         sum += int(number)
     return (sum == int(resultAnswer) and isValid)
-
-def putNumbers(a):
-    for i in range(len(letterUsed)):
-        letterUsed[i] = changeNumber(letterUsed[i],a[i])
-    if(checkAnswer(letterUsed)):
-        for answer in letterUsed:
-            print(answer[0], "=", answer[1])
  
 def heapPermutation(n,A):
     c = [0 for i in range(n)]
