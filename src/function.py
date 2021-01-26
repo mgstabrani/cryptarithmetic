@@ -50,25 +50,27 @@ def checkAnswer(letterUsed):
     return (sum == int(resultAnswer) and isValid)
 
 #Using heap permutation to generate permutation of possibility
-def heapPermutation(n,A):
-    c = [0 for i in range(n)]
+def heapPermutation():
+    n = 10
+    combination = list(range(10))
+    cons = [0 for i in range(n)]
     i = 0
     while(i < n and not found[0]):
-        if(c[i] < i):
+        if(cons[i] < i):
             if (i % 2 == 0):
-                A[0],A[i] = A[i],A[0]
+                combination[0],combination[i] = combination[i],combination[0]
             else:
-                A[c[i]],A[i] = A[i],A[c[i]]
-            if(A[0] != 0):
+                combination[cons[i]],combination[i] = combination[i],combination[cons[i]]
+            if(combination[0] != 0):
                 for k in range(len(letterUsed)):
-                    letterUsed[k] = changeNumber(letterUsed[k],A[k])  
+                    letterUsed[k] = changeNumber(letterUsed[k],combination[k])  
                 countTest[0] += 1                 
                 if(checkAnswer(letterUsed)):
                     found[0] = True
-            c[i] += 1
+            cons[i] += 1
             i = 0
         else:
-            c[i] = 0
+            cons[i] = 0
             i += 1
 
 #Display the solution
