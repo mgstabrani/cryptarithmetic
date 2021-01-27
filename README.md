@@ -8,6 +8,10 @@ Program kecil (sederhana) dalam Bahasa Python yang mengimplementasikan algoritma
 ```
 pip3 install pyinstaller
 ```
+atau
+```
+pip install pyinstaller
+```
 
 ## Cara Menggunakan Program
 ### Menjalankan melalui executable file
@@ -24,6 +28,10 @@ chmod +x main
 - Pastikan sudah berada di direktori src, kemudian ketikkan perintah berikut di terminal.
 ```
 python3 main.py
+```
+atau
+```
+python main.py
 ```
 - Kemudian masukkan input file yang berisi persoalan cryptarithmetic.
 
