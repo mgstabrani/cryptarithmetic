@@ -83,7 +83,7 @@ def displaySolution():
             if letter == " ":
                 print(" ",end="")
         print()
-    for letter in operand[len(operand)-1]:
+    for letter in operand[-1]:
         for number in letterUsed:
             if number[0] == letter:
                 print(number[1], end="")
