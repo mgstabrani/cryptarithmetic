@@ -7,7 +7,7 @@ def putLetters():
         for letter in element:
             isUnique = True
             for j in range(len(letterUsed)):
-                if(letter == letterUsed[j]):
+                if letter == letterUsed[j]:
                     isUnique = False
             if(isUnique and letter != " "):
                 letterUsed.append(letter)
@@ -30,24 +30,24 @@ def checkAnswer(letterUsed):
     for i in range(len(operand)):
         for j in range(len(operand[i])):
             for usedLetter in letterUsed:
-                if(operand[i][j] == usedLetter[0]):
+                if operand[i][j] == usedLetter[0]:
                     operandAnswer[i] += usedLetter[1]
     for i in range(len(result)):
         for usedLetter in letterUsed:
-            if(result[i] == usedLetter[0]):
+            if result[i] == usedLetter[0]:
                 resultAnswer += usedLetter[1]
     isValid = True
     for answer in operandAnswer:
-        if(answer[0] == "0"):
+        if answer[0] == "0":
             isValid = False
-    if(resultAnswer[0] == "0"):
+    if resultAnswer[0] == "0":
         isValid = False
-    if(not isValid):
+    if not isValid:
         countTest[0] -= 1
     sum = 0
     for number in operandAnswer:
         sum += int(number)
-    return (sum == int(resultAnswer) and isValid)
+    return sum == int(resultAnswer) and isValid
 
 #Using heap permutation to generate permutation of possibility
 def heapPermutation():
@@ -56,16 +56,16 @@ def heapPermutation():
     cons = [0 for i in range(n)]
     i = 0
     while(i < n and not found[0]):
-        if(cons[i] < i):
-            if (i % 2 == 0):
+        if cons[i] < i:
+            if i % 2 == 0:
                 combination[0],combination[i] = combination[i],combination[0]
             else:
                 combination[cons[i]],combination[i] = combination[i],combination[cons[i]]
-            if(combination[0] != 0):
+            if combination[0] != 0:
                 for k in range(len(letterUsed)):
                     letterUsed[k] = changeNumber(letterUsed[k],combination[k])  
                 countTest[0] += 1                 
-                if(checkAnswer(letterUsed)):
+                if checkAnswer(letterUsed):
                     found[0] = True
             cons[i] += 1
             i = 0
@@ -78,21 +78,21 @@ def displaySolution():
     for operands in operand[:len(operand)-1]:
         for letter in operands:
             for number in letterUsed:
-                if(number[0] == letter):
+                if number[0] == letter:
                     print(number[1], end="")
-            if(letter == " "):
+            if letter == " ":
                 print(" ",end="")
         print()
     for letter in operand[len(operand)-1]:
         for number in letterUsed:
-            if(number[0] == letter):
+            if number[0] == letter:
                 print(number[1], end="")
-        if(letter == " "):
+        if letter == " ":
             print(" ", end="")
     print("+")
     print((len(result)+1)*"-")    
     for letter in result:
         for number in letterUsed:
-            if(letter == number[0]):
+            if letter == number[0]:
                 print(number[1],end="")
     print()

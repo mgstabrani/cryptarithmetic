@@ -16,7 +16,7 @@ timeExecution = stop - start
 
 #Display the solution
 print(21*" ","SOLUTION")
-if(not found[0]):
+if not found[0]:
     print("No solution")
 else:
     displaySolution()

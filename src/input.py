@@ -8,7 +8,7 @@ print(50*"=")
 print(21*" ","PROBLEM")
 read = inputFile.readline()
 print(read,end="")
-while(read[0] != "-"):
+while read[0] != "-":
     operand.append(read)
     read = inputFile.readline()
     print(read,end="")
